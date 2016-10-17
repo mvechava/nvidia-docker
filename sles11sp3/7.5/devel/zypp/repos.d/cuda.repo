@@ -1,8 +1,0 @@
-[cuda]
-name=cuda
-enabled=1
-autorefresh=0
-baseurl=http://developer.download.nvidia.com/compute/cuda/repos/sles12/x86_64
-type=rpm-md
-gpgcheck=1
-gpgkey=http://developer.download.nvidia.com/compute/cuda/repos/GPGKEY
