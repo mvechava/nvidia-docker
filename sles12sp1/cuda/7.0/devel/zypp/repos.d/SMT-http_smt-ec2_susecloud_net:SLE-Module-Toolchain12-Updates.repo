@@ -1,7 +1,0 @@
-[SMT-http_smt-ec2_susecloud_net:SLE-Module-Toolchain12-Updates]
-name=SLE-Module-Toolchain12-Updates
-enabled=1
-autorefresh=1
-baseurl=http://smt-ec2.susecloud.net/repo/SUSE/Updates/SLE-Module-Toolchain/12/x86_64/update?credentials=SMT-http_smt-ec2_susecloud_net
-type=rpm-md
-service=SMT-http_smt-ec2_susecloud_net

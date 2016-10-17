@@ -1,5 +1,0 @@
-[nVidia-Driver-SLE12SP1]
-enabled=1
-autorefresh=1
-baseurl=http://http.download.nvidia.com/novell/sle12sp1/
-type=rpm-md
