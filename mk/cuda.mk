@@ -40,6 +40,9 @@ runtime: $(CUDA_LATEST)-runtime
 6.5: 6.5-devel $(CURDIR)/6.5
 	$(NV_DOCKER) tag cuda:$< cuda:$@
 
+6.0: 6.0-devel $(CURDIR)/6.0
+	$(NV_DOCKER) tag cuda:$< cuda:$@
+
 %-devel: %-runtime $(CURDIR)/%/devel/Dockerfile
 	$(NV_DOCKER) build -t cuda:$@ $(CURDIR)/$*/devel
 

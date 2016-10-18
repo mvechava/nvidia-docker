@@ -1,10 +1,12 @@
 FROM cuda:8.0-runtime
 MAINTAINER NVIDIA CORPORATION <digits@nvidia.com>
 
+#BSC #974556 workaround
 COPY zypp/services.d /etc/zypp/services.d
 COPY zypp/repos.d /etc/zypp/repos.d
 COPY zypp/credentials.d /etc/zypp/credentials.d
 COPY hosts /tmp/hosts
+
 RUN tail -1 /tmp/hosts >> /etc/hosts; cat /etc/hosts; zypper --gpg-auto-import-keys ref -s; \
     zypper -n install \
         cuda-core-$CUDA_PKG_VERSION \
