@@ -8,7 +8,7 @@ ENV CUDNN_DOWNLOAD_SUM 4e64ef7716f20c87854b4421863328e17cce633330c319b5e13809b61
 COPY curl-7.37.0-28.1.x86_64.rpm /tmp
 COPY tar-1.27.1-8.1.x86_64.rpm /tmp
 
-RUN zypper -n install /tmp/curl-7.37.0-28.1.x86_64.rpm /tmp/tar-1.27.1-8.1.x86_64.rpm
+RUN rpm -ivh /tmp/curl-7.37.0-28.1.x86_64.rpm /tmp/tar-1.27.1-8.1.x86_64.rpm
 RUN curl -fsSL http://developer.download.nvidia.com/compute/redist/cudnn/v4/cudnn-7.0-linux-x64-v4.0-prod.tgz -O && \
     echo "$CUDNN_DOWNLOAD_SUM  cudnn-7.0-linux-x64-v4.0-prod.tgz" | sha256sum -c --strict - && \
     tar -xzf cudnn-7.0-linux-x64-v4.0-prod.tgz -C /usr/local && \
