@@ -1,15 +1,9 @@
 FROM cuda:7.5-runtime
 MAINTAINER NVIDIA CORPORATION <digits@nvidia.com>
 
-#BSC #974556 workaround
-COPY zypp/services.d /etc/zypp/services.d
-COPY zypp/repos.d /etc/zypp/repos.d
-COPY zypp/credentials.d /etc/zypp/credentials.d
-COPY hosts /tmp/hosts
-
 ENV GPUDK_URL http://developer.download.nvidia.com/compute/cuda/repos/sles12/x86_64/gpu-deployment-kit-352.93-0.x86_64.rpm
 
-RUN tail -1 /tmp/hosts >> /etc/hosts; cat /etc/hosts; zypper --gpg-auto-import-keys ref -s; \
+RUN zypper --gpg-auto-import-keys ref -s; \
     zypper -n install \
         cuda-core-$CUDA_PKG_VERSION \
         cuda-misc-headers-$CUDA_PKG_VERSION \
@@ -26,7 +20,6 @@ RUN tail -1 /tmp/hosts >> /etc/hosts; cat /etc/hosts; zypper --gpg-auto-import-k
         cuda-driver-dev-$CUDA_PKG_VERSION \
         gcc-c++ && \
     zypper clean -a
-RUN rm /tmp/hosts
 
 RUN mkdir /tmp/gpu-deployment-kit
 ADD $GPUDK_URL /tmp/gpu-deployment-kit/

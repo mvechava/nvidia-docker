@@ -3,7 +3,7 @@ MAINTAINER NVIDIA CORPORATION <digits@nvidia.com>
 
 ENV CUDNN_VERSION 4
 LABEL com.nvidia.cudnn.version="4"
-ENV CUDNN_DOWNLOAD_SUM 4e64ef7716f20c87854b4421863328e17cce633330c319b5e13809b61a36f97d
+ENV CUDNN_DOWNLOAD_SUM cd091763d5889f0efff1fbda83bade191f530743a212c6b0ecc2a64d64d94405
 
 RUN zypper --gpg-auto-import-keys ref -s; \
     zypper -n install \
